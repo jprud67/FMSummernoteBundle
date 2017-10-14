@@ -45,10 +45,10 @@ class FMSummernoteExtension extends \Twig_Extension
         $template = $this->parameters['init_template'];
         $options = [];
 
-        $options['fontname'] = count($this->parameters['fontname']) > 0 ? $this->prepareArrayParameter('fontname') : $this->getDefaultFontname();
-        $options['fontnocheck'] = count($this->parameters['fontnocheck'] > 0) ? $this->prepareArrayParameter('fontnocheck') : null;
-        $options['language'] = isset($this->parameters['language']) ? $this->parameters['language'] : null;
-        $options['plugins'] = isset($this->parameters['plugins']) ? $this->parameters['plugins'] : null;
+       $options['fontname'] =  isset($this->parameters['fontname']) && !empty($this->parameters['fontname']) && count($this->parameters['fontname']) > 0 ? $this->prepareArrayParameter('fontname') : $this->getDefaultFontname();
+        $options['fontnocheck'] = isset($this->parameters['fontnocheck']) && !empty($this->parameters['fontnocheck']) && count($this->parameters['fontnocheck'] > 0) ? $this->prepareArrayParameter('fontnocheck') : null;
+        $options['language'] = isset($this->parameters['language']) && !empty($this->parameters['language']) ? $this->parameters['language'] : null;
+        $options['plugins'] = isset($this->parameters['plugins']) && !empty($this->parameters['plugins']) ? $this->parameters['plugins'] : null;
         $options['selector'] = $this->parameters['selector'];
         $options['width'] = $this->parameters['width'];
         $options['height'] = $this->parameters['height'];
